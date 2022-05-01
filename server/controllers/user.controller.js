@@ -1,6 +1,6 @@
-import User from '../models/user.model'
+import User from '../models/user.models'
 import extend from 'lodash/extend'
-import errorHandler from './error.controller'
+import errorHandler from './../helpers/dbErrorHandler'
 
 const create = async (req, res) => {
     const user = new User(req.body)
@@ -27,7 +27,7 @@ const list = async (req, res) => {
     }
 }
 
-const userById = (req, res, next, id) => {
+const userById = async (req, res, next, id) => {
     try {
         let user = await User.findById(id)
         if(!user){
