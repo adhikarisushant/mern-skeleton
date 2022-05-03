@@ -26,6 +26,8 @@ const UserSchema =  new mongoose.Schema({
     salt:  String
 })
 
+// 626e62ba151808ca0dff24ee
+
 UserSchema
   .virtual('password')
   .set(function(password) {
